@@ -22,7 +22,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Emil
  */
-@Path("person")
+@Path("info")
 public class InfoService {
 
     @Context

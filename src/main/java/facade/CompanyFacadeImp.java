@@ -20,12 +20,19 @@ public class CompanyFacadeImp implements ICompanyFacade {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
 
+    CompanyFacadeImp(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
+
+    public CompanyFacadeImp() {
+    }
+
     @Override
     public void addEntityManagerFactory(EntityManagerFactory emf) {
         this.emf = emf;
     }
 
-    private EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
@@ -55,16 +62,11 @@ public class CompanyFacadeImp implements ICompanyFacade {
     }
 
     @Override
-    public Company deleteCompany(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public Company getCompany(int id) {
         Company c = new Company();
         EntityManager em = getEntityManager();
         try {
-            Company company = em.find(Company.class, id);        
+            Company company = em.find(Company.class, id);
             return company;
         } finally {
             em.close();
@@ -72,8 +74,12 @@ public class CompanyFacadeImp implements ICompanyFacade {
     }
 
     @Override
-    public Company editCompany(Company c) {
+    public Company deleteCompany(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public Company editCompany(Company c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
