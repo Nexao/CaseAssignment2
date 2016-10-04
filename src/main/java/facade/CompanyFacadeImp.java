@@ -20,7 +20,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
 
-    CompanyFacadeImp(EntityManagerFactory emf) {
+    public CompanyFacadeImp(EntityManagerFactory emf) {
         this.emf = emf;
     }
 
