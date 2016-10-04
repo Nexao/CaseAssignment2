@@ -31,10 +31,10 @@ public class CompanyFacadeImpTest {
         Company c;
         c = new Company("name", "description", "cvr", 2, 100_000);
         Company result = cfacade.addCompany(c);
-        assertNotNull(result.getId());
+        assertNotNull(result.getCvr());
         EntityManager em = emf.createEntityManager();
         try {
-            Company result2 = em.find(Company.class, result.getId());
+            Company result2 = em.find(Company.class, result.getCvr());
             assertEquals("fname", result2.getCvr());
         } finally {
             em.close();
