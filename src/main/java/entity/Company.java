@@ -6,12 +6,14 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -29,8 +31,13 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Company.findByCvr", query = "SELECT c FROM Company c WHERE c.cvr = :cvr"),
     @NamedQuery(name = "Company.findByNumEmployees", query = "SELECT c FROM Company c WHERE c.numEmployees = :numEmployees"),
     @NamedQuery(name = "Company.findByMarketValue", query = "SELECT c FROM Company c WHERE c.marketValue = :marketValue")})
-public class Company extends InfoEntity {
+public class Company implements Serializable{
+    
+    @OneToMany(mappedBy = "company")
+    private Collection<InfoEntity> infoEntity;
 
+    @Id
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
