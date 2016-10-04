@@ -61,6 +61,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
 
     @Override
     public Company getCompany(int id) {
+        Company c = new Company();
         EntityManager em = getEntityManager();
         try {
             Company company = em.find(Company.class, id);        
