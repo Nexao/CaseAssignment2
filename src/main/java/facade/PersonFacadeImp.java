@@ -5,8 +5,6 @@ package facade;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 import entity.Person;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -21,50 +19,50 @@ import javax.persistence.Query;
 public class PersonFacadeImp implements IPersonFacade {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
-    
-    
-    
+
     public PersonFacadeImp(EntityManagerFactory emf) {
         this.emf = emf;
-        }
-    
-    public EntityManager getEntityManager() 
-    {
+    }
+
+    public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
+
     public PersonFacadeImp getPersonsInCity(String city, int zipCode) {
-        
-        
+
         return null;
     }
-    
+
     @Override
     public void addEntityManagerFactory(EntityManagerFactory emf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.emf = emf;
     }
 
     @Override
     public Person addPerson(Person p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(p);
+            em.getTransaction().commit();
+            return p;
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public Person deletePerson(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
-    public Person getPerson(int zipCode) {
-        Person p = new Person();
+    public Person getPerson(int id) {
+        Person c = new Person();
         EntityManager em = getEntityManager();
         try {
-            Query query = em.createQuery("INSERT JPA STUFF");
-            query.setParameter("id", zipCode);
-            p = (Person) query.getSingleResult();
-            return p;
-            
-            
+            Person person = em.find(Person.class, id);
+            return person;
         } finally {
             em.close();
         }
@@ -84,7 +82,7 @@ public class PersonFacadeImp implements IPersonFacade {
 
     @Override
     public Person editPerson(Person p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
-    
+
 }

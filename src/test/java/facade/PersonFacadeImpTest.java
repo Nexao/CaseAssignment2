@@ -43,18 +43,15 @@ public class PersonFacadeImpTest {
         Person p = new Person("fname", "lname", "hobbyname", "");
         Person result = facade.addPerson(p);
         assertNotNull(result.getId());
-    EntityManager em = emf.createEntityManager();
-    try {
-      Person result2 = em.find(Person.class, result.getId());
-      assertEquals("fname", result2.getfName());
-    } finally {
-      em.close();
-    }
+        EntityManager em = emf.createEntityManager();
+        try {
+            Person result2 = em.find(Person.class, result.getId());
+            assertEquals("fname", result2.getfName());
+        } finally {
+            em.close();
+        }
     }
 
-    /**
-     * Test of deletePerson method, of class PersonFacadeImp.
-     */
     @Test
     public void testDeletePerson() {
         System.out.println("deletePerson");
@@ -67,9 +64,6 @@ public class PersonFacadeImpTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getPerson method, of class PersonFacadeImp.
-     */
     @Test
     public void testGetPerson() {
         System.out.println("getPerson");
@@ -82,23 +76,12 @@ public class PersonFacadeImpTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getPersons method, of class PersonFacadeImp.
-     */
     @Test
     public void testGetPersons() {
-        System.out.println("getPersons");
-        PersonFacadeImp instance = null;
-        List<Person> expResult = null;
-        List<Person> result = instance.getPersons();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<Person> persons = facade.getPersons();
+        assertEquals(2, persons.size());
     }
 
-    /**
-     * Test of editPerson method, of class PersonFacadeImp.
-     */
     @Test
     public void testEditPerson() {
         System.out.println("editPerson");

@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entity;
 
-import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -53,13 +47,12 @@ public class Company extends InfoEntity {
     public Company() {
     }
 
-    public Company(String cvr) {
-        this.cvr = cvr;
-    }
-
-    public Company(String cvr, String name) {
-        this.cvr = cvr;
+    public Company(String name, String description, String cvr, Integer numEmployees, Integer marketValue) {
         this.name = name;
+        this.description = description;
+        this.cvr = cvr;
+        this.numEmployees = numEmployees;
+        this.marketValue = marketValue;
     }
 
     public String getName() {
