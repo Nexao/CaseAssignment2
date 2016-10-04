@@ -15,9 +15,9 @@ import javax.persistence.Persistence;
 public class MakeTable {
     public static void main(String[] args) {
         Persistence.generateSchema("pu", null);
-        EntityManager em = Persistence.createEntityManagerFactory("pu").createEntityManager();
-        em.getTransaction().begin();
-        // Do persist stuff!
-        em.getTransaction().commit();
+//        EntityManager em = Persistence.createEntityManagerFactory("pu").createEntityManager();
+//        em.getTransaction().begin();
+//        // Do persist stuff! Hpudi dabidi
+//        em.getTransaction().commit();
     }
 }
