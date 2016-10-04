@@ -35,7 +35,8 @@ public class PersonService {
     public PersonService() {
     }
 
-    @GET
+  @GET
+  @Path("getpersons")
   @Produces(MediaType.APPLICATION_JSON)
   public String getPersons() {
     List<Person> persons = facade.getPersons();
