@@ -29,10 +29,10 @@
 //    public void testGetPersonsInCity() {
 //        System.out.println("getPersonsInCity");
 //        String city = "";
-//        int zipCode = 0;
+//        int zip = 0;
 //        PersonFacadeImp instance = null;
 //        PersonFacadeImp expResult = null;
-//        PersonFacadeImp result = instance.getPersonsInCity(city, zipCode);
+//        PersonFacadeImp result = instance.getPersonsInCity(city, zip);
 //        assertEquals(expResult, result);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
@@ -67,10 +67,10 @@
 //    @Test
 //    public void testGetPerson() {
 //        System.out.println("getPerson");
-//        int zipCode = 0;
+//        int zip = 0;
 //        PersonFacadeImp instance = null;
 //        Person expResult = null;
-//        Person result = instance.getPerson(zipCode);
+//        Person result = instance.getPerson(zip);
 //        assertEquals(expResult, result);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");

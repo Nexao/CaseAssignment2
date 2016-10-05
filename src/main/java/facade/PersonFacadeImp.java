@@ -28,7 +28,7 @@ public class PersonFacadeImp implements IPersonFacade {
         return emf.createEntityManager();
     }
 
-    public PersonFacadeImp getPersonsInCity(String city, int zipCode) {
+    public PersonFacadeImp getPersonsInCity(String city, int zip) {
 
         return null;
     }

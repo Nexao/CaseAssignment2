@@ -3,6 +3,7 @@ package rest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entity.Company;
+import entity.Person;
 import facade.CompanyFacadeImp;
 import facade.ICompanyFacade;
 import java.util.List;
@@ -16,7 +17,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
-
+import static rest.PersonService.facade;
 
 /**
  * REST Web Service
