@@ -38,7 +38,7 @@
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
-#Ignore META-INF 
+#Ignore Persistence 
 src/main/resources/META-INF
 
 # JIRA plugin
