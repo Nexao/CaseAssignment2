@@ -93,9 +93,8 @@ public class CompanyFacadeImp implements ICompanyFacade {
         EntityManager em = getEntityManager();
         Company company = em.find(Company.class, id);
         try {
+            Query query = em.createQuery("UPDATE c from Company c where id = ?");
             em.getTransaction().begin();
-            
-            
             em.getTransaction().commit();
             return company;
         } finally {
