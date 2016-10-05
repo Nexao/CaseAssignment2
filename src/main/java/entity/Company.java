@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entity;
 
 import java.io.Serializable;
@@ -10,7 +6,6 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -60,13 +55,12 @@ public class Company implements Serializable{
     public Company() {
     }
 
-    public Company(String cvr) {
-        this.cvr = cvr;
-    }
-
-    public Company(String cvr, String name) {
-        this.cvr = cvr;
+    public Company(String name, String description, String cvr, Integer numEmployees, Integer marketValue) {
         this.name = name;
+        this.description = description;
+        this.cvr = cvr;
+        this.numEmployees = numEmployees;
+        this.marketValue = marketValue;
     }
 
     public String getName() {
@@ -108,30 +102,4 @@ public class Company implements Serializable{
     public void setMarketValue(Integer marketValue) {
         this.marketValue = marketValue;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (cvr != null ? cvr.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Company)) {
-            return false;
-        }
-        Company other = (Company) object;
-        if ((this.cvr == null && other.cvr != null) || (this.cvr != null && !this.cvr.equals(other.cvr))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entity.Company[ cvr=" + cvr + " ]";
-    }
-    
 }
