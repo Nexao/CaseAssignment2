@@ -38,19 +38,19 @@ public class PersonFacadeImpTest {
         fail("The test case is a prototype.");
     }
 
-    @Test
-    public void testAddPerson() {
-        Person p = new Person("fname", "lname", "hobbyname", "");
-        Person result = facade.addPerson(p);
-        assertNotNull(result.getId());
-        EntityManager em = emf.createEntityManager();
-        try {
-            Person result2 = em.find(Person.class, result.getId());
-            assertEquals("fname", result2.getfName());
-        } finally {
-            em.close();
-        }
-    }
+//    @Test
+//    public void testAddPerson() {
+//        Person p = new Person("fname", "lname", "hobbyname", "");
+//        Person result = facade.addPerson(p);
+//        assertNotNull(result.getId());
+//        EntityManager em = emf.createEntityManager();
+//        try {
+//            Person result2 = em.find(Person.class, result.getId());
+//            assertEquals("fname", result2.getfName());
+//        } finally {
+//            em.close();
+//        }
+//    }
 
     @Test
     public void testDeletePerson() {

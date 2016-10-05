@@ -1,12 +1,16 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -21,14 +25,18 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "AddressInfo.findByZipCode", query = "SELECT a FROM AddressInfo a WHERE a.zipCode = :zipCode"),
     @NamedQuery(name = "AddressInfo.findByCity", query = "SELECT a FROM AddressInfo a WHERE a.city = :city"),
     @NamedQuery(name = "AddressInfo.findByStreet", query = "SELECT a FROM AddressInfo a WHERE a.street = :street")})
-public class AddressInfo implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class AddressInfo implements Serializable{
+    
+    @OneToMany(mappedBy = "addressInfo")
+    private Collection<InfoEntity> infoEntity;
+    
+    @Id 
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "Street")
     private String street;
-    @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "zipCode")
