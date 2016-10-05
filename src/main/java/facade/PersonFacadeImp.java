@@ -53,7 +53,16 @@ public class PersonFacadeImp implements IPersonFacade {
 
     @Override
     public Person deletePerson(int id) {
-        return null;
+        EntityManager em = getEntityManager();
+        Person per = em.find(Person.class, id);
+        try{
+            em.getTransaction().begin();
+            em.remove(per);
+            em.getTransaction().commit();
+            return per;
+        }finally{
+          em.close();
+        }
     }
 
     @Override
@@ -81,8 +90,35 @@ public class PersonFacadeImp implements IPersonFacade {
     }
 
     @Override
-    public Person editPerson(Person p) {
-        return null;
+    public List<Person> getAllContactInfo() {
+        EntityManager em = getEntityManager();
+        try {
+            // getting person contact info via infoEntity table
+            Query query = em.createQuery("select fname, lname from Person ");
+            List<Person> persons = query.getResultList();
+            return persons;
+        } finally {
+            em.close();
+        }
+    }
+    
+    @Override
+    public Person editPerson(int id) {
+        EntityManager em = getEntityManager();
+        Person per = em.find(Person.class, id);
+        String fname = per.getfName();
+        String lname = per.getlName();
+        String hobby = per.getHobbyName();
+        String description = per.getDescription();
+        Query query = em.createQuery("update Person p set fName = "+fname+",lName = "+lname+", hobbyName= "+hobby+", hobbyDescription= "+description+" where id = "+id);
+        try {
+            em.getTransaction().begin();
+            em.refresh(query);
+            em.getTransaction().commit();
+            return per;
+        } finally {
+            em.close();
+        }
     }
 
 }

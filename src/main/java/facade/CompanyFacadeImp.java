@@ -89,12 +89,15 @@ public class CompanyFacadeImp implements ICompanyFacade {
     }
 
     @Override
-    public Company editCompany(Company c) {
+    public Company editCompany(int id) {
         EntityManager em = getEntityManager();
+        Company company = em.find(Company.class, id);
         try {
-            Query query = em.createQuery("UPDATE c from Company c where id = ?");
-            Company updated = 
-            return updated;
+            em.getTransaction().begin();
+            
+            
+            em.getTransaction().commit();
+            return company;
         } finally {
             em.close();
         }

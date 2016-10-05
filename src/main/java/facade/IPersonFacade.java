@@ -26,6 +26,8 @@ public interface IPersonFacade {
 
         public List<Person> getPersons();
 
-        public Person editPerson(Person p);
+        public Person editPerson(int id);
+        
+        public List<Person> getAllContactInfo();
     
 }

@@ -28,14 +28,6 @@
 //    @Test
 //    public void testGetPersonsInCity() {
 //        System.out.println("getPersonsInCity");
-//        String city = "";
-//        int zip = 0;
-//        PersonFacadeImp instance = null;
-//        PersonFacadeImp expResult = null;
-//        PersonFacadeImp result = instance.getPersonsInCity(city, zip);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
 //    }
 //
 //    @Test
@@ -55,25 +47,11 @@
 //    @Test
 //    public void testDeletePerson() {
 //        System.out.println("deletePerson");
-//        int id = 0;
-//        PersonFacadeImp instance = null;
-//        Person expResult = null;
-//        Person result = instance.deletePerson(id);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
 //    }
 //
 //    @Test
 //    public void testGetPerson() {
 //        System.out.println("getPerson");
-//        int zip = 0;
-//        PersonFacadeImp instance = null;
-//        Person expResult = null;
-//        Person result = instance.getPerson(zip);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
 //    }
 //
 //    @Test
@@ -85,13 +63,6 @@
 //    @Test
 //    public void testEditPerson() {
 //        System.out.println("editPerson");
-//        Person p = null;
-//        PersonFacadeImp instance = null;
-//        Person expResult = null;
-//        Person result = instance.editPerson(p);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
 //    }
 //
 //}

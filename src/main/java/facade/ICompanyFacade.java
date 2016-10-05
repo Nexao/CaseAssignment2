@@ -25,6 +25,6 @@ public interface ICompanyFacade {
 
     public List<Company> getCompany();
 
-    public Company editCompany(Company c);
+    public Company editCompany(int id);
 
 }

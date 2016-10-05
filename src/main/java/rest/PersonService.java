@@ -35,41 +35,44 @@ public class PersonService {
     public PersonService() {
     }
 
-  @GET
-  @Path("getpersons")
-  @Produces(MediaType.APPLICATION_JSON)
-  public String getPersons() {
-    List<Person> persons = facade.getPersons();
-    return gson.toJson(persons);
-  }
-  
-   @GET
-  @Path("{id}")
-  @Produces(MediaType.APPLICATION_JSON)
-  public String getPerson(@PathParam("id") int id) {
-    Person p = facade.getPerson(id);
-    return gson.toJson(p);
-  }
-    
-  @POST
-  @Consumes(MediaType.APPLICATION_JSON)
-  @Produces(MediaType.APPLICATION_JSON)
-  public String addPerson(String personJsonStr) {
-    Person p = gson.fromJson(personJsonStr, Person.class);
-    Person newPerson = facade.addPerson(p);
-    String jsonResult = gson.toJson(newPerson);
-    return jsonResult;
-  }
-  
     @GET
+    @Path("complete")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public String getPersons() {
+        List<Person> persons = facade.getPersons();
+        return gson.toJson(persons);
+    }
+
+    @GET
+    @Path("complete/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getPerson(@PathParam("id") int id) {
+        Person p = facade.getPerson(id);
+        return gson.toJson(p);
+    }
+    @GET
+    @Path("contactinfo")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getAllContactInfo() {
+        List<Person> persons = facade.getPersons();
+        return gson.toJson(persons);
+    }
+
+    @POST
+    @Path("add")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String addPerson(String personJsonStr) throws Exception{
+        Person p = gson.fromJson(personJsonStr, Person.class);
+        Person newPerson = facade.addPerson(p);
+        String jsonResult = gson.toJson(newPerson);
+        return jsonResult;
     }
 
     @PUT
+    @Path("edit")
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
+
     }
 }
