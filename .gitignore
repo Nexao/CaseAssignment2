@@ -39,7 +39,7 @@
 .idea_modules/
 
 #Ignore META-INF 
-META-INF
+src/main/resources/META-INF
 
 # JIRA plugin
 atlassian-ide-plugin.xml
