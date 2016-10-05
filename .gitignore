@@ -38,6 +38,9 @@
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
+#Ignore META-INF 
+META-INF
+
 # JIRA plugin
 atlassian-ide-plugin.xml
 
@@ -116,3 +119,4 @@ hs_err_pid*
 *.ldf
 0
 /nbproject/
+
