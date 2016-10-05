@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package facade;
 
 import entity.Company;
@@ -66,7 +65,6 @@ public class CompanyFacadeImpTest {
     }
 
 }
-=======
 //package facade;
 //
 //import entity.Company;
@@ -142,4 +140,3 @@ public class CompanyFacadeImpTest {
 //    }
 //
 //}
->>>>>>> cf0f5a82211a73dc216615628d7a034d11dbe216
