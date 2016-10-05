@@ -51,7 +51,7 @@ public class InfoService {
 //    public String getContactInfo() {
 //        //Person p1 = new Person();
 //        //InfoEntity ie1 = new InfoEntity();
-//        //AddressInfo ai1 = new AddressInfo();
+//        //Cityinfo ai1 = new Cityinfo();
 //        
 //        Object ob1 = new Object();
 //        

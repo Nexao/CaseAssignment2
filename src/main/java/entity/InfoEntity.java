@@ -27,9 +27,10 @@ import javax.validation.constraints.Size;
 public class InfoEntity implements Serializable 
 {
     @ManyToOne
-    private AddressInfo addressInfo;
     private Person person;
     private Company company;
+    private CityInfo cityinfo;
+    private Address address;
     
     
     private static final long serialVersionUID = 1L;
