@@ -75,17 +75,28 @@ public class CompanyFacadeImp implements ICompanyFacade {
 
     @Override
     public Company deleteCompany(int id) {
-    EntityManager em = getEntityManager();
+        EntityManager em = getEntityManager();
+        //Query query = em.createQuery("select p from Person p wher id = " +':'+ id);
+        Company c = em.find(Company.class, id);
         try {
-            Query query = em.createQuery("delete c from Company c where Company c id = ?");
-            return null;
+            em.getTransaction().begin();
+            em.remove(c);
+            em.getTransaction().commit();
+            return c;
         } finally {
             em.close();
-        }    
+        }
     }
 
     @Override
     public Company editCompany(Company c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("UPDATE c from Company c where id = ?");
+            Company updated = 
+            return updated;
+        } finally {
+            em.close();
+        }
     }
 }

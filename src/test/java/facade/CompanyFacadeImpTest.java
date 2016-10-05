@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 /**
  *
  * @author Diana
@@ -15,7 +16,6 @@ import static org.junit.Assert.*;
 public class CompanyFacadeImpTest {
 
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_test");
-    private static IPersonFacade facade = new PersonFacadeImp(emf);
     private static ICompanyFacade cfacade = new CompanyFacadeImp(emf);
 
     public CompanyFacadeImpTest() {
@@ -40,17 +40,13 @@ public class CompanyFacadeImpTest {
         }
     }
 
-
     @Test
     public void testDeleteCompany() {
-        System.out.println("deleteCompany");
-        int id = 0;
-        CompanyFacadeImp instance = new CompanyFacadeImp();
-        Company expResult = null;
-        Company result = instance.deleteCompany(id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        EntityManager em = emf.createEntityManager();
+        Company c = em.find(Company.class, 1);
+        em.getTransaction().begin();
+        em.remove(c);
+        em.getTransaction().commit();
     }
 
     @Test
@@ -61,14 +57,11 @@ public class CompanyFacadeImpTest {
 
     @Test
     public void testEditCompany() {
-        System.out.println("editCompany");
-        Company c = null;
-        CompanyFacadeImp instance = new CompanyFacadeImp();
-        Company expResult = null;
-        Company result = instance.editCompany(c);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        EntityManager em = emf.createEntityManager();
+        Company c = em.find(Company.class, 1);
+        em.getTransaction().begin();
+        em.setProperty("hahaha", c);
+        em.getTransaction().commit();
     }
 
 }
