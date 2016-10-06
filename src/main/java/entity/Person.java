@@ -56,6 +56,21 @@ public class Person implements Serializable{
         this.hobbyDescription = hobbyDescription;
     }
 
+    public Person(Collection<InfoEntity> infoEntity, String fName, String lName) {
+        this.infoEntity = infoEntity;
+        this.fName = fName;
+        this.lName = lName;
+    }
+
+    public Person(Collection<InfoEntity> infoEntity, String fName, String lName, String hobbyName, String hobbyDescription) {
+        this.infoEntity = infoEntity;
+        this.fName = fName;
+        this.lName = lName;
+        this.hobbyName = hobbyName;
+        this.hobbyDescription = hobbyDescription;
+    }
+    
+
     public String getfName() {
         return fName;
     }
