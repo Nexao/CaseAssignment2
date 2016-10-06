@@ -7,9 +7,11 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import org.eclipse.persistence.jpa.config.Cascade;
 
 /**
  *
@@ -18,7 +20,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class CityInfo implements Serializable {
 
-    @OneToMany(mappedBy = "cityinfo")
+    @OneToMany(mappedBy = "cityinfo", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Address> address;
     
     private static final long serialVersionUID = 1L;

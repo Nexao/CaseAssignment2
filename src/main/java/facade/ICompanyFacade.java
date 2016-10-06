@@ -23,7 +23,7 @@ public interface ICompanyFacade {
 
     public Company getCompany(int id) throws Exception;
 
-    public List<Company> getCompany() throws Exception;
+    public List<Company> getAllCompany() throws Exception;
 
     public Company editCompany(int id) throws Exception;
 
