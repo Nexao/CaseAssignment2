@@ -54,6 +54,15 @@ public class Company extends InfoEntity{
     public Company() {
     }
 
+    public Company(Collection<InfoEntity> infoEntity, String name, String description, String cvr, Integer numEmployees, Integer marketValue) {
+        this.infoEntity = infoEntity;
+        this.name = name;
+        this.description = description;
+        this.cvr = cvr;
+        this.numEmployees = numEmployees;
+        this.marketValue = marketValue;
+    }
+
     public Company(String name, String description, String cvr, Integer numEmployees, Integer marketValue) {
         this.name = name;
         this.description = description;
