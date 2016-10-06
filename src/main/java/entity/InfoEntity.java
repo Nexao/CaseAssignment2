@@ -56,6 +56,7 @@ public class InfoEntity implements Serializable
     
     public InfoEntity() {
     }
+    
     public InfoEntity(Integer id) {
         this.id = id;
     }
