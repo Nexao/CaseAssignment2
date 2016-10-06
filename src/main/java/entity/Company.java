@@ -4,6 +4,7 @@ package entity;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -29,7 +30,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Company.findByMarketValue", query = "SELECT c FROM Company c WHERE c.marketValue = :marketValue")})
 public class Company extends InfoEntity{
     
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "InfoEntity", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<InfoEntity> infoEntity;
 
     @Basic(optional = false)
