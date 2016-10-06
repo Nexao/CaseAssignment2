@@ -1,45 +1,44 @@
-//package facade;
-//
-//import entity.Company;
-//import java.util.List;
-//import javax.persistence.EntityManager;
-//import javax.persistence.EntityManagerFactory;
-//import javax.persistence.Persistence;
-//import junit.framework.TestCase;
-//import org.junit.Before;
-//import org.junit.Test;
-//import static org.junit.Assert.*;
-//
-///**
-// *
-// * @author Diana
-// */
-//public class CompanyFacadeImpTest {
-//
-//    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_test");
-//    private static ICompanyFacade cfacade = new CompanyFacadeImp(emf);
-//
-//    public CompanyFacadeImpTest() {
-//    }
-//
-//    @Before
-//    public void setUp() {
-//    }
-//
-//    @Test
-//    public void testAddCompany() {
-//        Company c;
-//        c = new Company("name", "description", "cvr", 2, 100_000);
-//        Company result = cfacade.addCompany(c);
-//        assertNotNull(result.getCvr());
-//        EntityManager em = emf.createEntityManager();
-//        try {
-//            Company result2 = em.find(Company.class, result.getCvr());
-//            assertEquals("fname", result2.getCvr());
-//        } finally {
-//            em.close();
-//        }
-//    }
+package facade;
+
+import entity.Company;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Diana
+ */
+public class CompanyFacadeImpTest {
+
+    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_test");
+    private static ICompanyFacade cfacade = new CompanyFacadeImp(emf);
+
+    public CompanyFacadeImpTest() {
+    }
+
+    @Before
+    public void setUp() {
+    }
+
+    @Test
+    public void testAddCompany() throws Exception {
+        Company c = new Company("name", "description", "cvr", 2, 100_000);
+        Company result = cfacade.addCompany(c);
+        assertNotNull(result.getName());
+        EntityManager em = emf.createEntityManager();
+        try {
+            Company result2 = em.find(Company.class, result.getName());
+            assertEquals("fname", result2.getName());
+        } finally {
+            em.close();
+        }
+    }
 //
 //    @Test
 //    public void testDeleteCompany() {
@@ -52,7 +51,7 @@
 //    }
 //
 //    @Test
-//    public void testGetallCompany() {
+//    public void testGetAllCompany() {
 //        List<Company> company = cfacade.getAllCompany();
 //        assertEquals(2, company.size());
 //    }
@@ -72,4 +71,4 @@
 ////        em.getTransaction().commit();
 ////        em.close();
 //    }
-//}
+}

@@ -3,7 +3,6 @@ package rest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entity.Company;
-import entity.Person;
 import facade.CompanyFacadeImp;
 import facade.ICompanyFacade;
 import java.util.List;
@@ -38,8 +37,8 @@ public class CompanyResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  public String getCompanys() throws Exception {
-    List<Company> company = cfacade.getCompany();
+  public String getAllCompany() throws Exception {
+    List<Company> company = cfacade.getAllCompany();
     return gson.toJson(company);
   }
     

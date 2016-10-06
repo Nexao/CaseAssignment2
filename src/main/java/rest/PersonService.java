@@ -63,12 +63,12 @@ public class PersonService {
 
     @POST
     @Path("add")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON) // comes in
+    @Produces(MediaType.APPLICATION_JSON) // sends out
     public String addPerson(String personJsonStr) throws Exception{
-        Person p = gson.fromJson(personJsonStr, Person.class);
-        Person newPerson = facade.addPerson(p);
-        String jsonResult = gson.toJson(newPerson);
+        Person p = gson.fromJson(personJsonStr, Person.class); // takes from browser
+        Person newPerson = facade.addPerson(p); // adds person via facade
+        String jsonResult = gson.toJson(newPerson); // creates Json string to send back
         return jsonResult;
     }
 

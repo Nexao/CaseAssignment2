@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facade;
 
 import entity.Company;
@@ -50,7 +45,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
     }
 
     @Override
-    public List<Company> getCompany() throws Exception {
+    public List<Company> getAllCompany() throws Exception {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createQuery("select c from Company c");
