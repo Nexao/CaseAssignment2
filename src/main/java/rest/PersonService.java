@@ -11,6 +11,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -38,12 +39,10 @@ public class PersonService {
     @GET
     @Path("complete")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPersons() throws Exception{
-        
+    public String getPersons() throws Exception{ 
         List<Person> persons = facade.getPersons();
         return gson.toJson(persons);
-        
-        
+       
     }
 
     @GET
@@ -70,6 +69,14 @@ public class PersonService {
         Person newPerson = facade.addPerson(p); // adds person via facade
         String jsonResult = gson.toJson(newPerson); // creates Json string to send back
         return jsonResult;
+    }
+    
+    @DELETE
+    @Path("delete/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String deletePerson(@PathParam("id") int id)throws Exception{
+        Person p = facade.deletePerson(id);
+        return gson.toJson(p);
     }
 
     @PUT

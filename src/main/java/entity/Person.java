@@ -2,6 +2,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,7 +27,7 @@ import javax.validation.constraints.Size;
 })
 public class Person extends InfoEntity{
 
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "InfoEntity", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<InfoEntity> infoEntity;
 
     @Size(max = 45)
