@@ -27,7 +27,7 @@ public class CompanyFacadeImpTest {
     }
 
     @Test
-    public void testAddCompany() {
+    public void testAddCompany() throws Exception {
         Company c;
         c = new Company("name", "description", "cvr", 2, 100_000);
         Company result = cfacade.addCompany(c);
@@ -42,7 +42,7 @@ public class CompanyFacadeImpTest {
     }
 
     @Test
-    public void testDeleteCompany() {
+    public void testDeleteCompany() throws Exception {
         EntityManager em = emf.createEntityManager();
         Company c = em.find(Company.class, 1);
         em.getTransaction().begin();
@@ -52,18 +52,18 @@ public class CompanyFacadeImpTest {
     }
 
     @Test
-    public void testGetallCompany() {
+    public void testGetallCompany() throws Exception {
         List<Company> company = cfacade.getCompany();
         assertEquals(2, company.size());
     }
 
     @Test
-    public void testEditCompany() {
+    public void testEditCompany() throws Exception {
         EntityManager em = emf.createEntityManager();
         Company c = cfacade.getCompany(1);
         TestCase.assertEquals("company name", c.getName());
         c.setName("test company");
-        cfacade.editCompany(c);
+//        cfacade.editCompany(c);
         Company cv = cfacade.getCompany(1);
         TestCase.assertEquals("name should be test company", cv.getName());
 //        Company c = em.find(Company.class, 1);
