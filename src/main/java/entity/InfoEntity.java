@@ -56,6 +56,16 @@ public class InfoEntity implements Serializable
     
     public InfoEntity() {
     }
+
+    public InfoEntity(Integer id, Person person, Company company, Address address, String email, String phoneNumber) {
+        this.id = id;
+        this.person = person;
+        this.company = company;
+        this.address = address;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
     public InfoEntity(Integer id) {
         this.id = id;
     }
