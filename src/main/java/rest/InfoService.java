@@ -38,12 +38,7 @@ public class InfoService {
      * Retrieves representation of an instance of rest.InfoService
      * @return an instance of java.lang.String
      */
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    public String getXml() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
-    }
+    
 
 //    @GET
 //    @Produces(MediaType.APPLICATION_JSON)
@@ -75,8 +70,4 @@ public class InfoService {
 //        return gson.toJson(p);
 //    }
     
-    @PUT
-    @Consumes(MediaType.APPLICATION_XML)
-    public void putXml(String content) {
-    }
 }

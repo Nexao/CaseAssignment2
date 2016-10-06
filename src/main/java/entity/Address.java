@@ -20,7 +20,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Address implements Serializable {
 
-    @OneToMany(mappedBy = "address")
+    @ManyToOne(mappedBy = "address")
     private Collection<InfoEntity> infoEntity;
     
     private static final long serialVersionUID = 1L;

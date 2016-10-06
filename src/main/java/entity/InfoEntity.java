@@ -10,6 +10,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -26,10 +27,13 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "InfoEntity.findByPhonenumber", query = "SELECT i FROM InfoEntity i WHERE i.phoneNumber = :phoneNumber")})
 public class InfoEntity implements Serializable 
 {
-    @ManyToOne
+    @OneToMany
     private Person person;
+    @OneToMany
     private Company company;
+    @OneToMany
     private CityInfo cityinfo;
+    @OneToMany
     private Address address;
     
     

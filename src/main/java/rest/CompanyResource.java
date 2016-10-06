@@ -36,7 +36,7 @@ public class CompanyResource {
     public CompanyResource() {
     }
 
-     @GET
+  @GET
   @Produces(MediaType.APPLICATION_JSON)
   public String getCompanys() {
     List<Company> company = cfacade.getCompany();
@@ -52,16 +52,6 @@ public class CompanyResource {
     String jsonResult = gson.toJson(newC);
     return jsonResult;
   }
-  
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
-    }
 
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
-    }
+    
 }
