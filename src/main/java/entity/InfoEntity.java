@@ -5,6 +5,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
@@ -14,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 /**
  *
  * @author jarmo
@@ -27,21 +30,22 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "InfoEntity.findByPhonenumber", query = "SELECT i FROM InfoEntity i WHERE i.phoneNumber = :phoneNumber")})
 public class InfoEntity implements Serializable 
 {
-    @OneToMany
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    
+    @ManyToOne
     private Person person;
-    @OneToMany
+    @ManyToOne
     private Company company;
-    @OneToMany
+    @ManyToOne
     private CityInfo cityinfo;
-    @OneToMany
+    @ManyToOne
     private Address address;
     
     
     private static final long serialVersionUID = 1L;
+    
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "Id")
     private Integer id;
     
     @Size(max = 45)
