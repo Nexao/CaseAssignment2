@@ -38,7 +38,7 @@ public class CompanyResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  public String getCompanys() {
+  public String getCompanys() throws Exception {
     List<Company> company = cfacade.getCompany();
     return gson.toJson(company);
   }
@@ -46,7 +46,7 @@ public class CompanyResource {
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
-  public String addCompany(String companyJsonStr) {
+  public String addCompany(String companyJsonStr) throws Exception {
     Company c = gson.fromJson(companyJsonStr, Company.class);
     Company newC = cfacade.addCompany(c);
     String jsonResult = gson.toJson(newC);

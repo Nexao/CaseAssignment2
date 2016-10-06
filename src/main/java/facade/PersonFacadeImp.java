@@ -39,7 +39,7 @@ public class PersonFacadeImp implements IPersonFacade {
     }
 
     @Override
-    public Person addPerson(Person p) {
+    public Person addPerson(Person p) throws Exception {
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
@@ -52,7 +52,7 @@ public class PersonFacadeImp implements IPersonFacade {
     }
 
     @Override
-    public Person deletePerson(int id) {
+    public Person deletePerson(int id) throws Exception {
         EntityManager em = getEntityManager();
         Person per = em.find(Person.class, id);
         try{
@@ -66,7 +66,7 @@ public class PersonFacadeImp implements IPersonFacade {
     }
 
     @Override
-    public Person getPerson(int id) {
+    public Person getPerson(int id) throws Exception {
         Person c = new Person();
         EntityManager em = getEntityManager();
         try {
@@ -78,7 +78,7 @@ public class PersonFacadeImp implements IPersonFacade {
     }
 
     @Override
-    public List<Person> getPersons() {
+    public List<Person> getPersons() throws Exception{
         EntityManager em = getEntityManager();
         try {
             Query query = em.createQuery("select p from Person p");
@@ -90,7 +90,7 @@ public class PersonFacadeImp implements IPersonFacade {
     }
 
     @Override
-    public List<Person> getAllContactInfo() {
+    public List<Person> getAllContactInfo() throws Exception {
         EntityManager em = getEntityManager();
         try {
             // getting person contact info via infoEntity table
@@ -103,7 +103,7 @@ public class PersonFacadeImp implements IPersonFacade {
     }
     
     @Override
-    public Person editPerson(int id) {
+    public Person editPerson(int id) throws Exception {
         EntityManager em = getEntityManager();
         Person per = em.find(Person.class, id);
         String fname = per.getfName();

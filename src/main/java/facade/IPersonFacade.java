@@ -18,16 +18,16 @@ public interface IPersonFacade {
 
     void addEntityManagerFactory(EntityManagerFactory emf);
 
-        public Person addPerson(Person p);
+        public Person addPerson(Person p) throws Exception;
 
-        public Person deletePerson(int id);
+        public Person deletePerson(int id) throws Exception;
 
-        public Person getPerson(int id);
+        public Person getPerson(int id) throws Exception;
 
-        public List<Person> getPersons();
+        public List<Person> getPersons() throws Exception;
 
-        public Person editPerson(int id);
+        public Person editPerson(int id) throws Exception;
         
-        public List<Person> getAllContactInfo();
+        public List<Person> getAllContactInfo() throws Exception;
     
 }
