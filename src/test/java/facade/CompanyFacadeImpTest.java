@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //package facade;
 //
 //import entity.Company;
@@ -27,7 +27,7 @@
 //    public void setUp() {
 //    }
 //
-=======
+
 package facade;
 
 import entity.Company;
@@ -56,7 +56,7 @@ public class CompanyFacadeImpTest {
     public void setUp() {
     }
 
->>>>>>> 00dfaf9c173b9719223fbeebbd1ab9fd6f331473
+
 //    @Test
 //    public void testAddCompany() throws Exception {
 //        Company c = new Company("name", "description", "cvr", 2, 100_000);
@@ -85,7 +85,7 @@ public class CompanyFacadeImpTest {
     public void testGetAllCompany() throws Exception {
         List<Company> company = cfacade.getAllCompany();
         assertEquals(1, company.size());
-    }
+    }}
 //
 //    @Test
 //    public void testEditCompany() {

@@ -57,9 +57,7 @@ public class InfoEntity implements Serializable
     
     public InfoEntity() {
     }
-<<<<<<< HEAD
-    
-=======
+
 
     public InfoEntity(Integer id, Person person, Company company, Address address, String email, String phoneNumber) {
         this.id = id;
@@ -70,7 +68,7 @@ public class InfoEntity implements Serializable
         this.phoneNumber = phoneNumber;
     }
 
->>>>>>> 00dfaf9c173b9719223fbeebbd1ab9fd6f331473
+
     public InfoEntity(Integer id) {
         this.id = id;
     }
