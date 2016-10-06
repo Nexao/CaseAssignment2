@@ -1,12 +1,4 @@
-$.ready(function(){
-    $('#infoButton').click(function(){
+function showPerson(str){
+    var http;
     
-                var temp = $.ajax({
-                    url: "api/person/getpersons",
-                    type: "GET"
-                });
-                temp.done(function(data, textStatus){
-                    $("#");
-                });
-            });
-});
+}
