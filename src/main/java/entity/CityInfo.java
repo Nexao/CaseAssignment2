@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
 public class CityInfo implements Serializable {
 
     @OneToMany(mappedBy = "cityinfo")
-    private Collection<InfoEntity> infoEntity;
+    private Collection<Address> address;
     
     private static final long serialVersionUID = 1L;
     @Id

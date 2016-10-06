@@ -24,12 +24,11 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Person.findByHobby", query = "SELECT p FROM Person p WHERE p.hobbyName = :hobbyName"),
     @NamedQuery(name = "Person.findByHobbyDescription", query = "SELECT p FROM Person p WHERE p.hobbyDescription = :hobbyDescription")
 })
-public class Person implements Serializable{
+public class Person extends InfoEntity{
 
     @OneToMany(mappedBy = "person")
     private Collection<InfoEntity> infoEntity;
-    
-    @Id
+
     @Size(max = 45)
     @Column(name = "FirstName")
     private String fName;
@@ -55,6 +54,21 @@ public class Person implements Serializable{
         this.hobbyName = hobbyName;
         this.hobbyDescription = hobbyDescription;
     }
+
+    public Person(Collection<InfoEntity> infoEntity, String fName, String lName) {
+        this.infoEntity = infoEntity;
+        this.fName = fName;
+        this.lName = lName;
+    }
+
+    public Person(Collection<InfoEntity> infoEntity, String fName, String lName, String hobbyName, String hobbyDescription) {
+        this.infoEntity = infoEntity;
+        this.fName = fName;
+        this.lName = lName;
+        this.hobbyName = hobbyName;
+        this.hobbyDescription = hobbyDescription;
+    }
+    
 
     public String getfName() {
         return fName;

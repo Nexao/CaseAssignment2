@@ -53,7 +53,7 @@
 //
 //    @Test
 //    public void testGetallCompany() {
-//        List<Company> company = cfacade.getCompany();
+//        List<Company> company = cfacade.getAllCompany();
 //        assertEquals(2, company.size());
 //    }
 //
