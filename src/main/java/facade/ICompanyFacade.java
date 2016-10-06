@@ -15,16 +15,16 @@ import javax.persistence.EntityManagerFactory;
  */
 public interface ICompanyFacade {
 
-    void addEntityManagerFactory(EntityManagerFactory emf);
+    void addEntityManagerFactory(EntityManagerFactory emf) throws Exception;
 
-    public Company addCompany(Company c);
+    public Company addCompany(Company c) throws Exception;
 
-    public Company deleteCompany(int id);
+    public Company deleteCompany(int id) throws Exception;
 
-    public Company getCompany(int id);
+    public Company getCompany(int id) throws Exception;
 
-    public List<Company> getCompany();
+    public List<Company> getCompany() throws Exception;
 
-    public Company editCompany(int id);
+    public Company editCompany(int id) throws Exception;
 
 }

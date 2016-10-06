@@ -37,7 +37,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
     }
 
     @Override
-    public Company addCompany(Company c) {
+    public Company addCompany(Company c) throws Exception {
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
@@ -50,7 +50,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
     }
 
     @Override
-    public List<Company> getCompany() {
+    public List<Company> getCompany() throws Exception {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createQuery("select c from Company c");
@@ -62,7 +62,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
     }
 
     @Override
-    public Company getCompany(int id) {
+    public Company getCompany(int id) throws Exception {
         Company c = new Company();
         EntityManager em = getEntityManager();
         try {
@@ -74,7 +74,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
     }
 
     @Override
-    public Company deleteCompany(int id) {
+    public Company deleteCompany(int id) throws Exception{
         EntityManager em = getEntityManager();
         //Query query = em.createQuery("select p from Person p wher id = " +':'+ id);
         Company c = em.find(Company.class, id);
@@ -89,7 +89,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
     }
 
     @Override
-    public Company editCompany(int id) {
+    public Company editCompany(int id) throws Exception {
         EntityManager em = getEntityManager();
         Company company = em.find(Company.class, id);
         try {

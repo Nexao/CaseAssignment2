@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -22,6 +24,7 @@ import javax.validation.constraints.Size;
  * @author jarmo
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "InfoEntity")
 @NamedQueries({
     @NamedQuery(name = "InfoEntity.findAll", query = "SELECT i FROM InfoEntity i"),
@@ -30,23 +33,18 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "InfoEntity.findByPhonenumber", query = "SELECT i FROM InfoEntity i WHERE i.phoneNumber = :phoneNumber")})
 public class InfoEntity implements Serializable 
 {
+    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     
     @ManyToOne
     private Person person;
     @ManyToOne
     private Company company;
     @ManyToOne
-    private CityInfo cityinfo;
-    @ManyToOne
     private Address address;
-    
-    
-    private static final long serialVersionUID = 1L;
-    
-    @Id
-    private Integer id;
+
     
     @Size(max = 45)
     @Column(name = "Email")

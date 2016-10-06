@@ -38,22 +38,25 @@ public class PersonService {
     @GET
     @Path("complete")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPersons() {
+    public String getPersons() throws Exception{
+        
         List<Person> persons = facade.getPersons();
         return gson.toJson(persons);
+        
+        
     }
 
     @GET
     @Path("complete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPerson(@PathParam("id") int id) {
+    public String getPerson(@PathParam("id") int id) throws Exception{
         Person p = facade.getPerson(id);
         return gson.toJson(p);
     }
     @GET
     @Path("contactinfo")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAllContactInfo() {
+    public String getAllContactInfo() throws Exception{
         List<Person> persons = facade.getPersons();
         return gson.toJson(persons);
     }
@@ -72,7 +75,7 @@ public class PersonService {
     @PUT
     @Path("edit")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    public void editPerson(String content) {
 
     }
 }

@@ -24,6 +24,9 @@ public class Address implements Serializable {
     @OneToMany(mappedBy = "address")
     private Collection<InfoEntity> infoEntity;
     
+    @ManyToOne
+    private CityInfo cityinfo;
+    
     private static final long serialVersionUID = 1L;
     @Id
 

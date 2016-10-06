@@ -39,7 +39,7 @@ public class PersonFacadeImp implements IPersonFacade {
     }
 
     @Override
-    public Person addPerson(Person p) {
+    public Person addPerson(Person p) throws Exception {
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
@@ -52,21 +52,21 @@ public class PersonFacadeImp implements IPersonFacade {
     }
 
     @Override
-    public Person deletePerson(int id) {
+    public Person deletePerson(int id) throws Exception {
         EntityManager em = getEntityManager();
         Person per = em.find(Person.class, id);
-        try{
+        try {
             em.getTransaction().begin();
             em.remove(per);
             em.getTransaction().commit();
             return per;
-        }finally{
-          em.close();
+        } finally {
+            em.close();
         }
     }
 
     @Override
-    public Person getPerson(int id) {
+    public Person getPerson(int id) throws Exception {
         Person c = new Person();
         EntityManager em = getEntityManager();
         try {
@@ -78,7 +78,7 @@ public class PersonFacadeImp implements IPersonFacade {
     }
 
     @Override
-    public List<Person> getPersons() {
+    public List<Person> getPersons() throws Exception{
         EntityManager em = getEntityManager();
         try {
             Query query = em.createQuery("select p from Person p");
@@ -89,8 +89,9 @@ public class PersonFacadeImp implements IPersonFacade {
         }
     }
 
+    // NOT READY
     @Override
-    public List<Person> getAllContactInfo() {
+    public List<Person> getAllContactInfo() throws Exception {
         EntityManager em = getEntityManager();
         try {
             // getting person contact info via infoEntity table
@@ -101,16 +102,16 @@ public class PersonFacadeImp implements IPersonFacade {
             em.close();
         }
     }
-    
+
     @Override
-    public Person editPerson(int id) {
+    public Person editPerson(int id) throws Exception {
         EntityManager em = getEntityManager();
         Person per = em.find(Person.class, id);
         String fname = per.getfName();
         String lname = per.getlName();
         String hobby = per.getHobbyName();
         String description = per.getDescription();
-        Query query = em.createQuery("update Person p set fName = "+fname+",lName = "+lname+", hobbyName= "+hobby+", hobbyDescription= "+description+" where id = "+id);
+        Query query = em.createQuery("update Person p set fName = " + fname + ",lName = " + lname + ", hobbyName= " + hobby + ", hobbyDescription= " + description + " where id = " + id);
         try {
             em.getTransaction().begin();
             em.refresh(query);
