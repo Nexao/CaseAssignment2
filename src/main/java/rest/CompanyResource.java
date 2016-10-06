@@ -39,7 +39,7 @@ public class CompanyResource {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public String getCompanys() {
-    List<Company> company = cfacade.getCompany();
+    List<Company> company = cfacade.getAllCompany();
     return gson.toJson(company);
   }
     

@@ -50,7 +50,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
     }
 
     @Override
-    public List<Company> getCompany() {
+    public List<Company> getAllCompany() {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createQuery("select c from Company c");

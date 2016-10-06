@@ -24,12 +24,11 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Person.findByHobby", query = "SELECT p FROM Person p WHERE p.hobbyName = :hobbyName"),
     @NamedQuery(name = "Person.findByHobbyDescription", query = "SELECT p FROM Person p WHERE p.hobbyDescription = :hobbyDescription")
 })
-public class Person implements Serializable{
+public class Person extends InfoEntity{
 
     @OneToMany(mappedBy = "person")
     private Collection<InfoEntity> infoEntity;
-    
-    @Id
+
     @Size(max = 45)
     @Column(name = "FirstName")
     private String fName;

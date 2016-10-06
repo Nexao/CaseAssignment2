@@ -23,7 +23,7 @@ public interface ICompanyFacade {
 
     public Company getCompany(int id);
 
-    public List<Company> getCompany();
+    public List<Company> getAllCompany();
 
     public Company editCompany(int id);
 

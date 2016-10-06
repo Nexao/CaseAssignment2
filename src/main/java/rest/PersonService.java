@@ -72,7 +72,7 @@ public class PersonService {
     @PUT
     @Path("edit")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    public void editPerson(String content) {
 
     }
 }
