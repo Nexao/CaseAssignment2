@@ -52,6 +52,7 @@ public class PersonService {
         Person p = facade.getPerson(id);
         return gson.toJson(p);
     }
+    
     @GET
     @Path("contactinfo")
     @Produces(MediaType.APPLICATION_JSON)

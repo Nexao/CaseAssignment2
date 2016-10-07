@@ -5,12 +5,16 @@ package facade;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import entity.InfoEntity;
 import entity.Person;
+import static entity.development.InfoEntity_.person;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.metamodel.SingularAttribute;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -67,27 +71,44 @@ public class PersonFacadeImp implements IPersonFacade {
 
     @Override
     public Person getPerson(int id) throws Exception {
-        Person c = new Person();
+                                               //Person c = new Person();
         EntityManager em = getEntityManager();
+        Person person = em.find(Person.class, id);
         try {
-            Person person = em.find(Person.class, id);
+             
+                    //            Query query = em.createQuery("SELECT  p FROM Person p where Person p.id = :id");
+                    //            Person c = (Person) query.getSingleResult();
             return person;
-        } finally {
+        }
+        catch (Exception ex) {
+            throw new WebApplicationException("Something went wrong");
+            
+        }
+        finally {
             em.close();
         }
+        
     }
 
     @Override
     public List<Person> getPersons() throws Exception{
         EntityManager em = getEntityManager();
+        System.out.println("Got the entity manager");
         try {
             Query query = em.createQuery("select p from Person p");
             List<Person> persons = query.getResultList();
-            return persons;
-        } finally {
-            em.close();
-        }
+        
+        if(persons!= null)
+        System.out.println("Got Persons: " + persons.size());
+        else
+        System.out.println("Got NULL");
+      return persons;
     }
+    finally{
+      em.close();
+    }
+    }
+    
 
     // NOT READY
     @Override

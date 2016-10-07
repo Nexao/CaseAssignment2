@@ -17,7 +17,7 @@
 //
 //    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_test");
 //    private static IPersonFacade facade = new PersonFacadeImp(emf);
-//
+////
 //    public PersonFacadeImpTest() {
 //    }
 //
@@ -42,14 +42,29 @@
 //        } 
 //        finally {
 //            em.close();
-//        }
+//        } 
+//        
 //    }
 //    
 //    @Test
-//    public void testDeletePerson() {
-//        Person person1 = new Person("JAB","AtheHt","Ballet","blablabla");
-//        
+//    public void testDeletePerson() throws Exception
+//    {
+//        Person newPer = new Person("JAB","AtheHt","Ballet","blablabla");  // I create a new person
+//        Person result = facade.addPerson(newPer);                      // I pass the person tthrough the facade
+//        EntityManager em = emf.createEntityManager();
+//        Person person = em.find(Person.class, result.getId());             // I find the ID of the person
+//        try{
+//            em.getTransaction().begin();
+//            em.remove(person);                                              // I remove person with that id
+//            em.getTransaction().commit();      
+//        }
+//        finally{
+//            em.close();
+//        }
+//        assertEquals(person, null);                                         // I ask if the person id is equal to null.S
+//        //assertEquals(person, result);   
 //    }
+//   
 //
 //    @Test
 //    public void testGetPerson() {
@@ -58,6 +73,10 @@
 //
 //    @Test
 //    public void testGetPersons() throws Exception {
+//        Person newPer = new Person("aa","aa","aa","aa");
+////        Person newPer2 = new Person("ss","ss","ss","ss");
+////        Person result = facade.add(newPer);
+//        
 //        List<Person> persons = facade.getPersons();
 //        assertEquals(2, persons.size());
 //    }
