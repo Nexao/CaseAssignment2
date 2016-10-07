@@ -43,7 +43,7 @@ public class InfoEntity implements Serializable
     
     @ManyToOne
     private Company company;
-    
+       
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Address address;
 
@@ -58,6 +58,21 @@ public class InfoEntity implements Serializable
     public InfoEntity() {
     }
 
+    public InfoEntity(Integer id, Person person, Address address, String email, String phoneNumber) {
+        this.id = id;
+        this.person = person;
+        this.address = address;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public InfoEntity(Integer id, Company company, Address address, String email, String phoneNumber) {
+        this.id = id;
+        this.company = company;
+        this.address = address;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 
     public InfoEntity(Integer id, Person person, Company company, Address address, String email, String phoneNumber) {
         this.id = id;
