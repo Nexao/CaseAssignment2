@@ -22,7 +22,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Address implements Serializable {
 
-    @OneToMany(mappedBy = "Address", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "address", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<InfoEntity> infoEntity;
     
     @ManyToOne
