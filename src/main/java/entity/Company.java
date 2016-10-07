@@ -30,7 +30,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Company.findByMarketValue", query = "SELECT c FROM Company c WHERE c.marketValue = :marketValue")})
 public class Company extends InfoEntity{
     
-    @OneToMany(mappedBy = "InfoEntity", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "Company", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<InfoEntity> infoEntity;
 
     @Basic(optional = false)

@@ -43,7 +43,7 @@ public class InfoEntity implements Serializable
     
     @ManyToOne
     private Company company;
-    
+       
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Address address;
 

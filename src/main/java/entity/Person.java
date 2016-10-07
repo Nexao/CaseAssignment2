@@ -27,7 +27,7 @@ import javax.validation.constraints.Size;
 })
 public class Person extends InfoEntity{
 
-    @OneToMany(mappedBy = "InfoEntity", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "Person", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<InfoEntity> infoEntity;
 
     @Size(max = 45)
