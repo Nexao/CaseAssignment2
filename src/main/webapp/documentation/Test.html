@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>TEST</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
@@ -14,6 +14,45 @@ and open the template in the editor.
    
     </head>
     <body>
-        <div>TODO write content</div>
+        
+        <div class="container2">
+            <h1>Tests</h1>
+            <p>
+                In the test packages we have two tests; CompanyFacadeImpTest and PersonFacadeImpTest. 
+                These two test classes, that we created from facade, test the input and output, to and from the database, via black box testing. In both of these classes we pass in EntityManagerFactory which is an interface for the persistence unit.
+                We created a separate persistence unit for testing called “pu_test”, so it wouldn't interfere with the real database. 
+                We also initialized the facade interface for Company and Person test class, so we can call the methods via interface.
+                In tests for adding and deleting person or company we passed EntityManager, that we closed at the end of each method.
+                Unfortunately due to problems in database and mapping of keys as well as dependencies, we could not pass any of the tests.
+            </p>
+            <p>
+                During the process we also tried to test through Postman, to see if we could get the data out from the database. 
+                When we try to get all persons all we get is an empty array, when we tried to get a person by id, the return is null.  
+                The same goes for creating a person.
+                We were recommended to start testing early in the project and we did, then there was a litle push-merge conflict with Git and the initial unit test for PersonFacadeImp was lost. 
+                The unit test gor deprioritized after thet due to the many problems with the connection from REST API to database. 
+                The following is a description on how the test methods should work:
+
+            </p>
+            <p>
+                testAddPerson method - We start by creating a new person, we pass it through our personFacade class, witch initializes the entity manager, which starts a transaction and persists the new person to the database. 
+                We make sure that the person has a name and thereby exists in the database. We also test that the name got all the way to and from the database by  searching for the person by name and asking if it is equal to the name we just created.
+            </p>
+            <p>
+                testDeletePerson method - We create a person and pass it through the personFacade class, then we find the first person through the id and remove the it. Lastly we make shure that the deleted persons id is equal to nothing.
+
+            </p>
+            
+            <p>
+                testGetPerson method - In this test, we look for a person with id 1 and make shure that what is returned to us is not null.
+                testGetPersons method - Here we create two persons, and pass them through the PersonFacade. 
+                Then we call the persons to a list, and tjeck if the size of the list is equal to two.
+            </p>
+            <p>
+                testEditPerson method - We find the first person in the list, begin a transaction to the database, and change the property of the first name. 
+                After we close the transaction, we find the person again and tjeck to make shure thet the name before is different from the name after. 
+                The test methods for company are almost exactly the same.
+            </p>
+        </div>
     </body>
 </html>
