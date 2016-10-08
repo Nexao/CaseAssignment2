@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Look for a person</title>
+        <script
+            src="http://code.jquery.com/jquery-3.1.1.js"
+            integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+              crossorigin="anonymous">
+        
+        <script>
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:8080/CA2/api/person/',
+                data : {
+                    'ID' : '#id.valueOf()'
+                },
+                dataType: 'json',
+                success: function(response) {
+                    $('#personInfo').text(response);
+                },
+                error: function(xhr) {
+                    console.log(xhr);
+                }
+            });
+            
+        </script>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Find a person</h1>
+            <div id="links">
+            <a href="PersonPages/FindPerson.html">Search for a person</a>
+            <a href="PersonPages/DeletePerson.html">Delete a person</a>
+            <a href="PersonPages/Person.html">Add a person</a>
+        </div>
+            <br/>
+            <br/>
+            <form class="container" id="findForm">
+                Enter the id of the person you want to find:
+                <br/>
+                <input type="text" id="id">
+                <br/>
+                <input type="submit" id="submit">
+            </form>
+            <p id="personInfo"></p>
+        </div>
+    </body>
+</html>
