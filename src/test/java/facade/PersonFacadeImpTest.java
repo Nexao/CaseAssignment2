@@ -1,7 +1,7 @@
 package facade;
 
 import entity.Person;
-import static facade.CompanyFacadeImpTest.emf;
+//import static facade.CompanyFacadeImpTest.emf;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,7 +15,7 @@ public class PersonFacadeImpTest {
 
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_test");
     private static IPersonFacade facade = new PersonFacadeImp(emf);
-//
+
     public PersonFacadeImpTest() {
     }
 
@@ -42,8 +42,11 @@ public class PersonFacadeImpTest {
     @Test
     public void testDeletePerson() throws Exception
     {
+        Person p = new Person("a","a","a","a");
+        Person result = facade.addPerson(p);
+        
         EntityManager em = emf.createEntityManager();
-        Person person = em.find(Person.class, 1);             
+        Person person = em.find(Person.class, result.getId());             
         try{
             em.getTransaction().begin();
             em.remove(person);                                             
@@ -70,8 +73,9 @@ public class PersonFacadeImpTest {
     @Test
     public void testGetPersons() throws Exception {
         Person newPer = new Person("aa","aa","aa","aa");
-//        Person newPer2 = new Person("ss","ss","ss","ss");
-//        Person result = facade.add(newPer);
+        Person newPer2 = new Person("ss","ss","ss","ss");
+        Person result = facade.addPerson(newPer);
+        Person result2 = facade.addPerson(newPer2);
         
         List<Person> persons = facade.getPersons();
         assertEquals(2, persons.size());
@@ -80,12 +84,18 @@ public class PersonFacadeImpTest {
     @Test
     public void testEditPerson() throws Exception{
         EntityManager em = emf.createEntityManager();
-        Person person = facade.getPerson(1);
-        em.getTransaction().begin();
-        em.setProperty("hahaha", c);
-        em.getTransaction().commit();
-        em.close();
-         
+        Person person = em.find(Person.class, 1); 
+        String fname = person.getfName();
+        try{
+            em.getTransaction().begin();
+            em.setProperty("hahaha", fname);
+            em.getTransaction().commit();
+        }
+        finally{
+            em.close();
+        }
+              
+        Person nameAfter = em.find(Person.class, person.getfName());
+        assertNotEquals(fname, nameAfter);
     }
-
 }

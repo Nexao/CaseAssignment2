@@ -44,10 +44,14 @@ public class CompanyFacadeImpTest {
     public void testDeleteCompany() {
         EntityManager em = emf.createEntityManager();
         Company c = em.find(Company.class, 1);
-        em.getTransaction().begin();
-        em.remove(c);
-        em.getTransaction().commit();
-        em.close();
+        try{
+           em.getTransaction().begin();
+           em.remove(c);
+           em.getTransaction().commit();
+       }
+        finally{
+            em.close();
+       }
         assertEquals(c, null);
     }
 
@@ -74,10 +78,14 @@ public class CompanyFacadeImpTest {
         Company cv = cfacade.getCompany(1);
         TestCase.assertEquals("name should be test company", cv.getName());
         Company c1 = em.find(Company.class, 1);
-        em.getTransaction().begin();
-        em.setProperty("hahaha", c);
-        em.getTransaction().commit();
-        em.close();
+        try{
+            em.getTransaction().begin();
+            em.setProperty("hahaha", c);
+            em.getTransaction().commit();
+        }
+        finally{
+            em.close();
+        }
     }
 }
 
