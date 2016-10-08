@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Delete page</title>
+        <title>Delete a company page</title>
         <script
             src="http://code.jquery.com/jquery-3.1.1.js"
             integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
@@ -20,15 +20,24 @@ and open the template in the editor.
     </head>
     <body>
         <div>
-            <h1>Delete a person from the database</h1>
+            <h1>Delete a company from the database</h1>
+            <div id="links">
+            <a href="../index.html">Front page</a>
+            <a href="PersonPages/FindPerson.html">Search for a person</a>
+            <a href="PersonPages/DeletePerson.html">Delete a person</a>
+            <a href="PersonPages/Person.html">Add a person</a>
+            <a href="CompanyPages/AddCompany.html">Add a company</a>
+            <a href="CompanyPages/DeleteCompany.html">Delete a company</a>
+            <a href="CompanyPages/FindCompany.html">Find a company</a>
+        </div>
         </div>
         <div class="container">
             <form id="deleteForm">
-                Enter the person's id:
+                Enter the company's id:
                 <br/>
-                <input type="text" id="PersonId">
+                <input type="text" id="CompanyId">
                 <br/>
-                <button id='deleteButton'>Delete the person</button>
+                <button id='deleteButton'>Delete the company</button>
             </form>
         </div>
     </body>
