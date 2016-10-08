@@ -24,10 +24,12 @@ and open the template in the editor.
     </head>
     <body>
         <div>
-            <p> 
-                This site will, when it's completed, host most of the FRONTEND
-                things for the CRUD in our REST.
-            </p>
+            <h1>Add a person</h1>
+            <div id="links">
+            <a href="PersonPages/FindPerson.html">Search for a person</a>
+            <a href="PersonPages/DeletePerson.html">Delete a person</a>
+            <a href="PersonPages/Person.html">Add a person</a>
+        </div>
 
             <div id='addForm'>
                 <form id='addPerson' action='#'>
@@ -71,7 +73,13 @@ and open the template in the editor.
             <div id='personInfo'>
                 <button id='infoButton' style='color: red;'>Get all persons</button>
             </div>
-
+            <div class ="container">
+                <table id="person">
+                    <tr>
+                        
+                    </tr>
+                </table>
+            </div>
         </div>
     </body>
 </html>
