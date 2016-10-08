@@ -71,7 +71,7 @@ public class PersonFacadeImp implements IPersonFacade {
 
     @Override
     public Person getPerson(int id) throws Exception {
-                                               //Person c = new Person();
+        //Person c = new Person();
         EntityManager em = getEntityManager();
         Person person = em.find(Person.class, id);
         try {

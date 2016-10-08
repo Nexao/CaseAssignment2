@@ -11,6 +11,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import org.eclipse.persistence.jpa.config.Cascade;
 
 /**
@@ -18,6 +19,7 @@ import org.eclipse.persistence.jpa.config.Cascade;
  * @author Emil
  */
 @Entity
+@Table(name="cityinfo")
 public class CityInfo implements Serializable {
 
     @OneToMany(mappedBy = "cityinfo", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
