@@ -32,16 +32,16 @@ public class PersonFacadeImp implements IPersonFacade {
         return emf.createEntityManager();
     }
 
-    public PersonFacadeImp getPersonsInCity(String city, int zip) {
-
-        return null;
-    }
-
     @Override
     public void addEntityManagerFactory(EntityManagerFactory emf) {
         this.emf = emf;
     }
 
+    public PersonFacadeImp getPersonsInCity(String city, int zip) {
+
+        return null;
+    }
+    
     @Override
     public Person addPerson(Person p) throws Exception {
         EntityManager em = getEntityManager();
@@ -75,14 +75,14 @@ public class PersonFacadeImp implements IPersonFacade {
         EntityManager em = getEntityManager();
         Person person = em.find(Person.class, id);
         try {
-             
-                    //            Query query = em.createQuery("SELECT  p FROM Person p where Person p.id = :id");
-                    //            Person c = (Person) query.getSingleResult();
+
+            //            Query query = em.createQuery("SELECT  p FROM Person p where Person p.id = :id");
+            //            Person c = (Person) query.getSingleResult();
             return person;
         }
-        catch (Exception ex) {
-            throw new WebApplicationException("Something went wrong");
-            
+        catch (Exception ex) 
+        {
+            throw new WebApplicationException("Something went wrong");   
         }
         finally {
             em.close();
@@ -93,30 +93,32 @@ public class PersonFacadeImp implements IPersonFacade {
     @Override
     public List<Person> getPersons() throws Exception{
         EntityManager em = getEntityManager();
-        System.out.println("Got the entity manager");
+//        Query query = em.createQuery("SELECT e FROM Person e");
+//        return (List<Person>) query.getResultList();
         try {
             Query query = em.createQuery("select p from Person p");
+            System.out.println("Did the qu");
             List<Person> persons = query.getResultList();
         
-        if(persons!= null)
-        System.out.println("Got Persons: " + persons.size());
-        else
-        System.out.println("Got NULL");
-      return persons;
-    }
-    finally{
-      em.close();
-    }
+            if(persons!= null)
+            System.out.println("Got Persons: " + persons.size());
+            else
+            System.out.println("Got NULL");
+        return  persons;
+        }
+        finally{
+          em.close();
+        }
+       
     }
     
-
     // NOT READY
     @Override
     public List<Person> getAllContactInfo() throws Exception {
         EntityManager em = getEntityManager();
         try {
             // getting person contact info via infoEntity table
-            Query query = em.createQuery("select fname, lname from Person ");
+            Query query = em.createQuery("select Phonenumber, address_street, Person.* from infoentity inner join Person where person_id =:id");
             List<Person> persons = query.getResultList();
             return persons;
         } finally {

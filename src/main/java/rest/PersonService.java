@@ -41,7 +41,7 @@ public class PersonService {
     @Produces(MediaType.APPLICATION_JSON)
     public String getPersons() throws Exception{ 
         List<Person> persons = facade.getPersons();
-        return gson.toJson(persons);
+        return gson.toJson("My persons"+persons);
        
     }
 
@@ -50,7 +50,7 @@ public class PersonService {
     @Produces(MediaType.APPLICATION_JSON)
     public String getPerson(@PathParam("id") int id) throws Exception{
         Person p = facade.getPerson(id);
-        return gson.toJson(p);
+        return gson.toJson("One person"+p);
     }
     
     @GET
