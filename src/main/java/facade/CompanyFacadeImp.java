@@ -90,7 +90,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
         try {
             Query query = em.createQuery("UPDATE c from Company c where id = ?");
             em.getTransaction().begin();
-            
+            em.refresh(query);
             em.getTransaction().commit();
             return company;
         } finally {
