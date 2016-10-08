@@ -26,11 +26,11 @@ import javax.validation.constraints.Size;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "InfoEntity")
-//@NamedQueries({
-//    @NamedQuery(name = "InfoEntity.findAll", query = "SELECT i FROM InfoEntity i"),
-//    @NamedQuery(name = "InfoEntity.findById", query = "SELECT i FROM InfoEntity i WHERE i.id = :id"),
-//    @NamedQuery(name = "InfoEntity.findByEmail", query = "SELECT i FROM InfoEntity i WHERE i.email = :email"),
-//    @NamedQuery(name = "InfoEntity.findByPhonenumber", query = "SELECT i FROM InfoEntity i WHERE i.phoneNumber = :phoneNumber")})
+@NamedQueries({
+    @NamedQuery(name = "InfoEntity.findAll", query = "SELECT i FROM InfoEntity i"),
+    @NamedQuery(name = "InfoEntity.findById", query = "SELECT i FROM InfoEntity i WHERE i.id = :id"),
+    @NamedQuery(name = "InfoEntity.findByEmail", query = "SELECT i FROM InfoEntity i WHERE i.email = :email"),
+    @NamedQuery(name = "InfoEntity.findByPhonenumber", query = "SELECT i FROM InfoEntity i WHERE i.phoneNumber = :phoneNumber")})
 public class InfoEntity implements Serializable 
 {
     private static final long serialVersionUID = 1L;
@@ -38,13 +38,13 @@ public class InfoEntity implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(cascade = {CascadeType.ALL, CascadeType.PERSIST})
     private Person person;
     
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(cascade = {CascadeType.ALL, CascadeType.PERSIST})
     private Company company;
     
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(cascade = {CascadeType.ALL, CascadeType.PERSIST})
     private Address address;
 
     @Size(max = 45)

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+
+
+        <div class="container">
+            <h1>Rest</h1>    
+            <p>
+                In our rest package we have 4 classes, the first class "ApplicationConfig" is where we handle our Rest classes. In the method addRestResourceClasses it takes care of 3 classes, + an error handling classes. Which is used for directing various errors. We have also changed the path of it to "API".
+            </p>
+            <p>We're using @Produces when ever we want to get something from the database and @Consumes when ever there is written in the web application</p>
+            <h3>CompanyResource</h3><p> is where we handle the our get and post method for information related to company. 
+                getAllCompany uses a @Produces, as it only gets data from the database. The method takes all the info about the company and puts it into a list and then returns it as Json, which is done by using our gson builder to convert it into Json.
+                addCompany uses @Produces and @Consumes as it takes the info written, as well as putting it into the database. We make a new Company which takes a string and converts is using our GsonBuilder, into a Json. Again we make a Company and now add in our first Company, but this time we pass it in as a parameter into our cfacade.AddCompany. We then make a new string with the second Company and converts it again to Json and then return it.
+            </p>
+            <h3>InforService</h3> <p>We haven't really had any time for this class, so we therefore marked it all out, as it gave alot of errors due to unfished work. </p>
+            <h3>PersonService</h3> <p>
+                getPersons uses @Produces as we're getting a list of people from the database. And then returning it as a jSon. We're getting this "method" by using @Path("complete")	
+                getPerson uses  @Produces as we're getting a single person from the database via the facade by inserting an ID for the specific person into the URL. We do that by using (@PathParam("id") int id), so that the number we write in the URL is passed on to the Person and takes that specific integer and is thereby able to find that person. We do this in the on the same path as getPersons, however, here we have @Path("complete/{id}"), which allows us to use the Id inside of complete.
+                getAllContactInfo is the same as getPersons, only difference is the @Path. 
+                addPerson is the same as addCompany again the only difference is the path
+                deletePerson works the same way as get person, however instead of getting a person with a specific ID, then you delte er person with er specific ID, we use the @Path("delete/{id}"), we don't have any warnings with this though, so if a valid ID is written in the url, then that person will be deleted instantly 
+                editPerson. We have not worked on editPerson.
+            </p>
+            <p>All the methods we have in these classes throw exceptions, we then handle those excetions in our "<a href="exception.html">ExceptionMapper</a>".</p>
+        </div>
+    </body>
+</html>

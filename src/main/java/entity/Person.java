@@ -100,5 +100,10 @@ public class Person extends InfoEntity{
     public void setDescription(String description) {
         this.hobbyDescription = description;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" + "fName=" + fName + ", lName=" + lName + ", hobbyName=" + hobbyName + ", hobbyDescription=" + hobbyDescription + '}';
+    }
    
 }

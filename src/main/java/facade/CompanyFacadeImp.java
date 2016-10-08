@@ -71,7 +71,7 @@ public class CompanyFacadeImp implements ICompanyFacade {
     @Override
     public Company deleteCompany(int id) throws Exception{
         EntityManager em = getEntityManager();
-        //Query query = em.createQuery("select p from Person p wher id = " +':'+ id);
+        //Query query = em.createQuery("select p from Person p where id = " +':'+ id);
         Company c = em.find(Company.class, id);
         try {
             em.getTransaction().begin();

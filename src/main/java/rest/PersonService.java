@@ -2,6 +2,7 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import entity.Person;
 import facade.IPersonFacade;
 import facade.PersonFacadeImp;
@@ -50,7 +51,7 @@ public class PersonService {
     @Produces(MediaType.APPLICATION_JSON)
     public String getPerson(@PathParam("id") int id) throws Exception{
         Person p = facade.getPerson(id);
-        return gson.toJson("One person"+p);
+        return gson.toJson(p);
     }
     
     @GET
