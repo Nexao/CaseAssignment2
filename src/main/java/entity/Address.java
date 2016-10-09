@@ -19,7 +19,7 @@ import javax.persistence.Table;
  * @author Emil
  */
 @Entity
-@Table(name="address")
+@Table(name="ADDRESS")
 public class Address implements Serializable {
 
     @OneToMany(mappedBy = "address", cascade = {CascadeType.PERSIST, CascadeType.MERGE})

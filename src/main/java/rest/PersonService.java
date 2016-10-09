@@ -51,7 +51,8 @@ public class PersonService {
     @Produces(MediaType.APPLICATION_JSON)
     public String getPerson(@PathParam("id") int id) throws Exception{
         Person p = facade.getPerson(id);
-        return gson.toJson(p);
+        String jsonString = new Gson().toJson(p);
+        return jsonString;
     }
     
     @GET

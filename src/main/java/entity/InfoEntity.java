@@ -25,7 +25,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "InfoEntity")
+@Table(name = "INFOENTITY")
 @NamedQueries({
     @NamedQuery(name = "InfoEntity.findAll", query = "SELECT i FROM InfoEntity i"),
     @NamedQuery(name = "InfoEntity.findById", query = "SELECT i FROM InfoEntity i WHERE i.id = :id"),

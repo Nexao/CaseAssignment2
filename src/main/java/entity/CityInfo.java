@@ -19,7 +19,7 @@ import org.eclipse.persistence.jpa.config.Cascade;
  * @author Emil
  */
 @Entity
-@Table(name="cityinfo")
+@Table(name="CITYINFO")
 public class CityInfo implements Serializable {
 
     @OneToMany(mappedBy = "cityinfo", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
